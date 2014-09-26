@@ -1,0 +1,4 @@
+appid: 10237
+install: [apache-tomcat]
+start: $USER_DIR/bin/start.sh
+setenv: {JVM_ARGS: '-Dspring.profiles.active=product -XX:MaxPermSize=256m -XX:PermSize=128m'}

@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<!DOCTYPE Configure PUBLIC "-//Mort Bay Consulting//DTD Configure//EN" "http://jetty.mortbay.org/configure.dtd">
+<Configure class="org.eclipse.jetty.webapp.WebAppContext">
+	<New id="focus_dc" class="org.eclipse.jetty.plus.jndi.Resource">
+		<Arg>java:comp/env/jdbc/focus_dc</Arg>
+		<Arg>
+			<New class="org.apache.commons.dbcp.BasicDataSource">
+				<Set name="driverClassName">com.mysql.jdbc.Driver</Set>
+				<Set name="url">jdbc:mysql://10.11.4.68:3306/focus_dc?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull</Set>
+				<Set name="username">focus_dc</Set>
+				<Set name="password">dPSTP572</Set>
+				<Set name="maxActive" type="int">100</Set>
+				<Set name="maxIdle" type="int">30</Set>
+				<Set name="maxWait" type="int">1000</Set>
+				<Set name="defaultAutoCommit" type="boolean">true</Set>
+				<Set name="removeAbandoned" type="boolean">true</Set>
+				<Set name="removeAbandonedTimeout" type="int">60</Set>
+				<Set name="logAbandoned" type="boolean">true</Set>
+				<Set name="validationQuery">SELECT 1</Set>
+			</New>
+		</Arg>
+	</New>
+
+	<New id="focus_dc" class="org.eclipse.jetty.plus.jndi.Resource">
+		<Arg>java:comp/env/jdbc/focus_dc_read</Arg>
+		<Arg>
+			<New class="org.apache.commons.dbcp.BasicDataSource">
+				<Set name="driverClassName">com.mysql.jdbc.Driver</Set>
+				<Set name="url">jdbc:mysql://10.11.4.69:3306/focus_dc?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull</Set>
+				<Set name="username">focus_dc</Set>
+				<Set name="password">dPSTP572</Set>
+				<Set name="maxActive" type="int">100</Set>
+				<Set name="maxIdle" type="int">30</Set>
+				<Set name="maxWait" type="int">1000</Set>
+				<Set name="defaultAutoCommit" type="boolean">true</Set>
+				<Set name="removeAbandoned" type="boolean">true</Set>
+				<Set name="removeAbandonedTimeout" type="int">60</Set>
+				<Set name="logAbandoned" type="boolean">true</Set>
+				<Set name="validationQuery">SELECT 1</Set>
+			</New>
+		</Arg>
+	</New>
+
+	<New id="xinfang" class="org.eclipse.jetty.plus.jndi.Resource">
+		<Arg>java:comp/env/jdbc/xinfang</Arg>
+		<Arg>
+			<New class="org.apache.commons.dbcp.BasicDataSource">
+				<Set name="driverClassName">com.mysql.jdbc.Driver</Set>
+				<Set name="url">jdbc:mysql://10.10.57.187:3306/focus_xinfang?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull</Set>
+				<Set name="username">focus_xinfang</Set>
+				<Set name="password">f1#aKn0A</Set>
+				<Set name="maxActive" type="int">100</Set>
+				<Set name="maxIdle" type="int">30</Set>
+				<Set name="maxWait" type="int">1000</Set>
+				<Set name="defaultAutoCommit" type="boolean">true</Set>
+				<Set name="removeAbandoned" type="boolean">true</Set>
+				<Set name="removeAbandonedTimeout" type="int">60</Set>
+				<Set name="logAbandoned" type="boolean">true</Set>
+				<Set name="validationQuery">SELECT 1</Set>
+			</New>
+		</Arg>
+	</New>
+
+	<New id="xinfang" class="org.eclipse.jetty.plus.jndi.Resource">
+		<Arg>java:comp/env/jdbc/xinfang_read</Arg>
+		<Arg>
+			<New class="org.apache.commons.dbcp.BasicDataSource">
+				<Set name="driverClassName">com.mysql.jdbc.Driver</Set>
+				<Set name="url">jdbc:mysql://10.10.57.188:3306/focus_xinfang?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull</Set>
+				<Set name="username">focus_xinfang</Set>
+				<Set name="password">f1#aKn0A</Set>
+				<Set name="maxActive" type="int">100</Set>
+				<Set name="maxIdle" type="int">30</Set>
+				<Set name="maxWait" type="int">1000</Set>
+				<Set name="defaultAutoCommit" type="boolean">true</Set>
+				<Set name="removeAbandoned" type="boolean">true</Set>
+				<Set name="removeAbandonedTimeout" type="int">60</Set>
+				<Set name="logAbandoned" type="boolean">true</Set>
+				<Set name="validationQuery">SELECT 1</Set>
+			</New>
+		</Arg>
+	</New>
+</Configure>

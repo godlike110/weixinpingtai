@@ -1,0 +1,28 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd 
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd ">
+
+	<bean id="lcLogConfig" class="cn.focus.dc.lc.client.config.LcLogConfig">
+		<property name="appId" value="${lc.log.appId}" />
+		<property name="logType" value="${lc.log.logType}" />
+	</bean>
+	<bean id="httpLcLogSender" class="cn.focus.dc.lc.client.component.impl.HttpStrLcLogSender"
+		init-method="init">
+		<property name="singleUrl" value="${lc.log.singleUrl}" />
+		<property name="multiUrl" value="${lc.log.multiUrl}" />
+		<property name="connectRequestTimeout" value="${lc.log.connectRequestTimeout}" />
+		<property name="connectTimeout" value="${lc.log.connectTimeout}" />
+	</bean>
+
+	<bean id="asyncLogSender"
+		class="cn.focus.dc.lc.client.component.impl.AsyncStrLcLogSender">
+		<constructor-arg index="0" ref="httpLcLogSender" />
+		<constructor-arg index="1" value="51200" />
+	</bean>
+	<bean id="logBuilder" class="cn.focus.dc.lc.client.builder.LcLogger" init-method="init">
+		<constructor-arg index="0" ref="asyncLogSender" />
+		<constructor-arg index="1" ref="lcLogConfig" />
+	</bean>
+</beans>

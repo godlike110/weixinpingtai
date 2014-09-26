@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd 
+		 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-contex.xsd">
+
+	<bean name="transcoder"
+		class="net.rubyeye.xmemcached.transcoders.WhalinTranscoder">
+		<!--存储到Memcache中的编码 -->
+		<property name="charset" value="UTF-8" />
+		<!--是否将对象直接存储为字符串 -->
+		<property name="primitiveAsString" value="false" />
+		<!--默认压缩数据的界限，大于此值的数据才压缩 -->
+		<property name="compressionThreshold" value="15360" />
+		<property name="packZeros" value="false" />
+	</bean>
+
+	
+
+	<beans profile="test,local">
+        <!-- 本地，测试环境的 memcached 服务配置 -->
+        <bean name="memcachedClient"
+			class="net.rubyeye.xmemcached.utils.XMemcachedClientFactoryBean" 
+			destroy-method="shutdown"> 
+			<property name="servers" value="192.168.242.44:11211" />
+			<property name="connectionPoolSize" value="1"></property>
+			<property name="commandFactory">
+				<bean class="net.rubyeye.xmemcached.command.BinaryCommandFactory"></bean>
+			</property>
+			<property name="sessionLocator">
+				<bean class="net.rubyeye.xmemcached.impl.KetamaMemcachedSessionLocator"></bean>
+			</property>
+			<property name="transcoder" ref="transcoder" />
+		</bean>
+
+    </beans>
+
+    <beans profile="test_sce">
+
+        <!-- SCE 测试环境下 memcache 服务配置 -->
+        
+        <bean name="sceMemcachedServerListBuilder" class="cn.focus.dc.focuswap.component.SCEMemcachedServerListBuilder">
+			<property name="sceZKUrl"
+				value="http://sceapi.apps.sohuno.com/api/memcache/release?uid={uid}&amp;key={key}" />
+			<property name="sceUid" value="1057" />
+			<property name="scePassword" value="0887515f83881b221eba2c19190e4762" />
+		</bean>
+		
+		<bean name="sceMemcachedServerListStr" factory-bean="sceMemcachedServerListBuilder" factory-method="getServerListStr"/>
+		<bean name="authInfoMap" factory-bean="sceMemcachedServerListBuilder" factory-method="getAuthInfoMap"/>
+	
+		<bean name="memcachedClient"
+			class="net.rubyeye.xmemcached.utils.XMemcachedClientFactoryBean" 
+			destroy-method="shutdown"> 
+			<property name="servers" ref="sceMemcachedServerListStr" />
+			<property name="authInfoMap" ref="authInfoMap"/>
+			<property name="connectionPoolSize" value="1"></property>
+			<property name="commandFactory">
+				<bean class="net.rubyeye.xmemcached.command.BinaryCommandFactory"></bean>
+			</property>
+			<property name="sessionLocator">
+				<bean class="net.rubyeye.xmemcached.impl.KetamaMemcachedSessionLocator"></bean>
+			</property>
+			<property name="transcoder" ref="transcoder" />
+		</bean>
+    </beans>
+
+ 
+    <beans profile="product">
+       
+        
+        <bean name="sceMemcachedServerListBuilder" class="cn.focus.dc.focuswap.component.SCEMemcachedServerListBuilder">
+			<property name="sceZKUrl"
+				value="http://sceapi.apps.sohuno.com/api/memcache/release?uid={uid}&amp;key={key}" />
+			<property name="sceUid" value="1043" />
+			<property name="scePassword" value="968c9a6cc595983d2c2f06ff4b83aedf" />
+		</bean>
+		
+		<bean name="sceMemcachedServerListStr" factory-bean="sceMemcachedServerListBuilder" factory-method="getServerListStr"/>
+		<bean name="authInfoMap" factory-bean="sceMemcachedServerListBuilder" factory-method="getAuthInfoMap"/>
+	
+		<bean name="memcachedClient"
+			class="net.rubyeye.xmemcached.utils.XMemcachedClientFactoryBean" 
+			destroy-method="shutdown"> 
+			<property name="servers" ref="sceMemcachedServerListStr" />
+			<property name="authInfoMap" ref="authInfoMap"/>
+			<property name="connectionPoolSize" value="10"></property>
+			<property name="commandFactory">
+				<bean class="net.rubyeye.xmemcached.command.BinaryCommandFactory"></bean>
+			</property>
+			<property name="sessionLocator">
+				<bean class="net.rubyeye.xmemcached.impl.KetamaMemcachedSessionLocator"></bean>
+			</property>
+			<property name="transcoder" ref="transcoder" />
+		</bean>
+    </beans>
+
+	
+	
+</beans>

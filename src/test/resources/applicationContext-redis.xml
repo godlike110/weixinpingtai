@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd 
+		 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-contex.xsd">
+
+<!-- <bean id="redisHandler" class="cn.focus.dc.focuswap.service.RedisHandlerService" />
+
+	<beans profile="local,test,test_sce">
+		<bean name="localMasterServer" class="cn.focus.dc.focuswap.component.RedisServerConfig">
+			<property name="ip" value="192.168.242.44" />
+			<property name="port" value="6379" />
+			<property name="master" value="1" />
+			<property name="persistence" value="1" />
+		</bean>
+		<bean name="localSlaveServer" class="cn.focus.dc.focuswap.component.RedisServerConfig">
+			<property name="ip" value="192.168.242.44" />
+			<property name="port" value="6379" />
+			<property name="master" value="0" />
+			<property name="persistence" value="1" />
+		</bean>
+		<bean name="redisServerConfigList" class="java.util.ArrayList" >
+			<constructor-arg>
+				<list>
+					<ref bean="localMasterServer" />
+					<ref bean="localSlaveServer" />
+				</list>
+			</constructor-arg>
+		</bean>
+		<bean name="sceRedisPwd" class="java.lang.String" >
+			<constructor-arg>
+				<value></value>
+			</constructor-arg>
+		</bean>
+	</beans>
+
+	<beans profile="product">
+		<bean name="sceRedisServerListBuilder" class="cn.focus.dc.focuswap.component.SCERedisServerListBuilder" >
+			<property name="sceRedisApiUrl" value="http://sceapi.apps.sohuno.com/api/redis/release?uid=1245" />
+		</bean>
+		必须要两个server，1个master，1个slave
+		<bean name="redisServerConfigList" factory-bean="sceRedisServerListBuilder" factory-method="getServerList"/>
+		
+		<bean name="sceRedisPwd" class="java.lang.String" >
+			<constructor-arg>
+				<value>5c0781689f822e27f9f2cb2dbf55a08c</value>
+			</constructor-arg>
+		</bean>
+
+	</beans> -->
+		 
+</beans>

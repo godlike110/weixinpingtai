@@ -1,0 +1,75 @@
+<?xml version="1.0" ?>
+<fis>
+	<id>I'm a fake Id</id>
+	<name>I'm a fake Name</name>
+	<fileSets>
+		<fileSet>
+			<resolveImmeditely>true</resolveImmeditely>
+			<directory>${basedir}/src/main/webapp/views/</directory>
+			<includes>
+				<include>(.*?)\.(jsp|html)</include>
+			</includes>
+			<excludes>
+				<exclude>pad/.*</exclude>
+				<exclude>jsq/pad/.*</exclude>
+				<exclude>passport/pad/.*</exclude>
+				<exclude>portal/buildinghome/pad/.*</exclude>
+				<exclude>portal/home/pad/.*</exclude>
+				<exclude>portal/info/pad/.*</exclude>
+				<exclude>usercenter/pad/.*</exclude>
+			</excludes>
+			<output>${basedir}/target/out/webapp/views/$1.$2</output>
+			<release></release>
+			<md5>false</md5>
+			<md5len>7</md5len>
+			<filtered>true</filtered>
+			<useDefaultExcludes>true</useDefaultExcludes>
+		</fileSet>
+		<fileSet>
+			<resolveImmeditely>true</resolveImmeditely>
+			<directory>${basedir}/src/main/webapp/static/</directory>
+			<includes>
+				<include>appwap.html</include>
+			</includes>
+			<output>${basedir}/target/out/webapp/static/appwap.html</output>
+			<release></release>
+			<md5>false</md5>
+			<md5len>7</md5len>
+			<filtered>true</filtered>
+			<useDefaultExcludes>true</useDefaultExcludes>
+		</fileSet>
+		<fileSet>
+			<resolveImmeditely>false</resolveImmeditely>
+			<directory>http://192.168.242.44/sceapp/focus_static/wap/</directory>
+			<includes>
+				<include>(.*\.js)</include>
+				<include>(.*\.png)</include>
+				<include>(.*\.jpg)</include>
+				<include>(.*\.gif)</include>
+				<include>(.*\.ico)</include>
+				<include>(.*\.css)</include>
+			</includes>
+			<fetch>http://192.168.242.44/online/wap/$1</fetch>
+			<output>${basedir}/target/out/static/wap${sv}/$1</output>
+			<!-- <release>http://192.168.242.44/static/wap/$1</release> -->
+			<!-- <release>http://focus_static.cdn.sohusce.com/wap2.1.1/$1</release> -->
+			<release>http://a1.itc.cn/sceapp/fws/wap${sv}/$1</release>
+			<md5>true</md5>
+		</fileSet>
+		<fileSet>
+			<resolveImmeditely>false</resolveImmeditely>
+			<directory>http://192.168.242.44/online/wap/</directory>
+			<includes>
+				<include>(.*\.js)</include>
+				<include>(.*\.png)</include>
+				<include>(.*\.jpg)</include>
+				<include>(.*\.gif)</include>
+				<include>(.*\.ico)</include>
+				<include>(.*\.css)</include>
+			</includes>
+			<output>${basedir}/target/out/static/wap${sv}/$1</output>
+			<release>http://a1.itc.cn/sceapp/fws/wap${sv}/$1</release>
+			<md5>true</md5>
+		</fileSet>
+	</fileSets>
+</fis>

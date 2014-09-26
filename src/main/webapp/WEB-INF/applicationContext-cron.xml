@@ -1,0 +1,65 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd  
+        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
+
+    <task:annotation-driven/>
+
+   <bean id="loadNewsJob"
+        class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="newsService" />
+        <property name="targetMethod" value="starReloadNewsData"/>
+    </bean>
+
+    <bean id="loadNewsTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+        <property name="jobDetail" ref="loadNewsJob" />
+        <!--<property name="repeatInterval" value="10000" />-->
+        <property name="repeatCount" value="0" />
+    </bean>
+
+    <!-- 配置在系统启动10秒后，通过PHP接口加载新闻信息到缓存中 -->
+    <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="startupDelay" value="10"/>
+        <property name="triggers">
+            <list>
+                <ref bean="loadNewsTrigger"/>
+                <ref bean="sitemapTrigger"/>
+                <ref bean="uploadTrigger"/>
+                <ref bean="updateRedisTrigger"/>                
+            </list>
+        </property>
+    </bean>
+    
+    <bean id="sitemapJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    	<property name="targetObject" ref="internalService" />
+        <property name="targetMethod" value="cronJobOfSiteMap"/>
+    </bean>
+    
+    <bean id="sitemapTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+    	<property name="jobDetail" ref="sitemapJob" />
+    	<property name="repeatCount" value="0" />
+    </bean>
+    
+    
+    <bean id="uploadJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="uploadService" />
+        <property name="targetMethod" value="uploadJob"/>
+    </bean>
+    
+    <bean id="uploadTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+    	<property name="jobDetail" ref="uploadJob" />
+    	<property name="repeatCount" value="0" />
+    </bean>
+    <bean id="updateRedis" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="tuanGouService" />
+        <property name="targetMethod" value="updateRedis"/>
+    </bean>
+    
+    <bean id="updateRedisTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+    	<property name="jobDetail" ref="updateRedis" />
+    	<property name="repeatCount" value="0" />
+    </bean>    
+
+</beans>

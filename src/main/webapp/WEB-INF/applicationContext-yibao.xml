@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd 
+		 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-contex.xsd">
+
+	<beans profile="local,test">
+	
+		<bean id="yibaoConfiguration" class="cn.focus.dc.focuswap.config.YiBaoConfig">
+		  	<property name="yibaoPublicKey" value="MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCSCWe+AyJjOELGkLNGF8xrNKnJb1dn5ofCfvGhBUmX3VKSj+lw41AVkhD/Cku/FtGtfxsryNlj3vfIZxNTPJk33WAqtyPwg6ZF/XuYdE8Q537WqorsASOb5aEhBDWCrH1EV/G1PRzSfwvW9g+QiSskj0z2bGvIcqxzmAtN5u9NgwIDAQAB" />
+		  	<property name="merchantPrivateKey" value="MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAJCFxcsxbtp+2Il7j3MHx2Xss4qojbd3tl6RAU7E88m6RYqRjBZSZaMi07gDXXCLXRBtdG0/Ajls3nyW1YQL2VJGoz6U82jJU7lZQ+7XKSCP0KZ+9Mz5goQ4FN6W4LfAwF4DLWryuTN2XejzNuygwkYKgHoUc2b3f2VV7A//7eOFAgMBAAECgYAJAGwLde7DqTbviUSsE4X18UJVlp4NGWXAiiOctmPA4ttGAD7LfSJbgOXTBlKhmeyYA1lHHK+UyBUriXGPIfXNNB1zhdNdtAtpR2m1qfAuCnFHdzYqe7bgB47U70Q9zkbsVvFuDtiTJO0ix5CA/51EbIZM8w+4uXbKZ5eFVN0LwQJBAMtn6CjtVvGyJu5f1PA4ylyJEPlKwAvrtnezvW6S6OoBgA819mNMBeGPh/e3rnpf8u5+pGLPuOxfOZYMF+9Z1gkCQQC15C/18IaHKVQHHPpxC652jVQEfuwSwZdJy5ZtV2YSx7vYQuaOwnheOiP66jK6f6wtRVku5ov6WT/LSycTkKCdAkEAm77rB/N7QEPeBWYBgRKq+CHHimqPFFGe/Jb29GSuzQbrDDqQd0WttyGUxbuycGdpdu4nZrWQ7gSX7mlCJnZOKQJADW7Uu+0PglvjAMN7G24pbEfztIFLHfd+HM0URu71ct2dWdNXA6QJD6xri9RP+sYDCTTd6UDNhaehtnnOYPuFYQJALc9VkBvW8Cg0eHq7BF8AbECgW6j6SUKZX4YuXRtxfrwQIkywBOeseLYmkTnrubAwZBHt3Jjs22aonn32BzuUVQ==" />
+		    <property name="merchantaccount" value="10012412055" />
+		    <!-- 类别码2：用户编号 -->
+		    <property name="identitytype" value="2" />
+		    <!-- 类别码6：公益事业 -->
+		    <property name="productcatalog" value="6" />
+		    <property name="productnamePrefix" value="搜狐焦点公益-捐款" />
+		    <property name="callbackurl" value="http://qa.m.focus.cn/gongyi/success" />
+		    <property name="mobilePayUrl" value="http://ok.yeepay.com/paymobile/api/pay/request" />
+		</bean>
+	</beans>
+
+	<beans profile="test_sce">
+		<bean id="yibaoConfiguration" class="cn.focus.dc.focuswap.config.YiBaoConfig">
+		  	<property name="yibaoPublicKey" value="MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCSCWe+AyJjOELGkLNGF8xrNKnJb1dn5ofCfvGhBUmX3VKSj+lw41AVkhD/Cku/FtGtfxsryNlj3vfIZxNTPJk33WAqtyPwg6ZF/XuYdE8Q537WqorsASOb5aEhBDWCrH1EV/G1PRzSfwvW9g+QiSskj0z2bGvIcqxzmAtN5u9NgwIDAQAB" />
+		  	<property name="merchantPrivateKey" value="MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAJCFxcsxbtp+2Il7j3MHx2Xss4qojbd3tl6RAU7E88m6RYqRjBZSZaMi07gDXXCLXRBtdG0/Ajls3nyW1YQL2VJGoz6U82jJU7lZQ+7XKSCP0KZ+9Mz5goQ4FN6W4LfAwF4DLWryuTN2XejzNuygwkYKgHoUc2b3f2VV7A//7eOFAgMBAAECgYAJAGwLde7DqTbviUSsE4X18UJVlp4NGWXAiiOctmPA4ttGAD7LfSJbgOXTBlKhmeyYA1lHHK+UyBUriXGPIfXNNB1zhdNdtAtpR2m1qfAuCnFHdzYqe7bgB47U70Q9zkbsVvFuDtiTJO0ix5CA/51EbIZM8w+4uXbKZ5eFVN0LwQJBAMtn6CjtVvGyJu5f1PA4ylyJEPlKwAvrtnezvW6S6OoBgA819mNMBeGPh/e3rnpf8u5+pGLPuOxfOZYMF+9Z1gkCQQC15C/18IaHKVQHHPpxC652jVQEfuwSwZdJy5ZtV2YSx7vYQuaOwnheOiP66jK6f6wtRVku5ov6WT/LSycTkKCdAkEAm77rB/N7QEPeBWYBgRKq+CHHimqPFFGe/Jb29GSuzQbrDDqQd0WttyGUxbuycGdpdu4nZrWQ7gSX7mlCJnZOKQJADW7Uu+0PglvjAMN7G24pbEfztIFLHfd+HM0URu71ct2dWdNXA6QJD6xri9RP+sYDCTTd6UDNhaehtnnOYPuFYQJALc9VkBvW8Cg0eHq7BF8AbECgW6j6SUKZX4YuXRtxfrwQIkywBOeseLYmkTnrubAwZBHt3Jjs22aonn32BzuUVQ==" />
+		    <property name="merchantaccount" value="10012412055" />
+		    <!-- 类别码2：用户编号 -->
+		    <property name="identitytype" value="2" />
+		    <!-- 类别码6：公益事业 -->
+		    <property name="productcatalog" value="6" />
+		    <property name="productnamePrefix" value="搜狐焦点公益-捐款" />
+		    <property name="callbackurl" value="http://test-sce.m.focus.cn/gongyi/success" />
+		    <property name="mobilePayUrl" value="http://ok.yeepay.com/paymobile/api/pay/request" />
+		</bean>
+	</beans>
+	
+	<beans profile="product">
+		<bean id="yibaoConfiguration" class="cn.focus.dc.focuswap.config.YiBaoConfig">
+		  	<property name="yibaoPublicKey" value="MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCSCWe+AyJjOELGkLNGF8xrNKnJb1dn5ofCfvGhBUmX3VKSj+lw41AVkhD/Cku/FtGtfxsryNlj3vfIZxNTPJk33WAqtyPwg6ZF/XuYdE8Q537WqorsASOb5aEhBDWCrH1EV/G1PRzSfwvW9g+QiSskj0z2bGvIcqxzmAtN5u9NgwIDAQAB" />
+		  	<property name="merchantPrivateKey" value="MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAJCFxcsxbtp+2Il7j3MHx2Xss4qojbd3tl6RAU7E88m6RYqRjBZSZaMi07gDXXCLXRBtdG0/Ajls3nyW1YQL2VJGoz6U82jJU7lZQ+7XKSCP0KZ+9Mz5goQ4FN6W4LfAwF4DLWryuTN2XejzNuygwkYKgHoUc2b3f2VV7A//7eOFAgMBAAECgYAJAGwLde7DqTbviUSsE4X18UJVlp4NGWXAiiOctmPA4ttGAD7LfSJbgOXTBlKhmeyYA1lHHK+UyBUriXGPIfXNNB1zhdNdtAtpR2m1qfAuCnFHdzYqe7bgB47U70Q9zkbsVvFuDtiTJO0ix5CA/51EbIZM8w+4uXbKZ5eFVN0LwQJBAMtn6CjtVvGyJu5f1PA4ylyJEPlKwAvrtnezvW6S6OoBgA819mNMBeGPh/e3rnpf8u5+pGLPuOxfOZYMF+9Z1gkCQQC15C/18IaHKVQHHPpxC652jVQEfuwSwZdJy5ZtV2YSx7vYQuaOwnheOiP66jK6f6wtRVku5ov6WT/LSycTkKCdAkEAm77rB/N7QEPeBWYBgRKq+CHHimqPFFGe/Jb29GSuzQbrDDqQd0WttyGUxbuycGdpdu4nZrWQ7gSX7mlCJnZOKQJADW7Uu+0PglvjAMN7G24pbEfztIFLHfd+HM0URu71ct2dWdNXA6QJD6xri9RP+sYDCTTd6UDNhaehtnnOYPuFYQJALc9VkBvW8Cg0eHq7BF8AbECgW6j6SUKZX4YuXRtxfrwQIkywBOeseLYmkTnrubAwZBHt3Jjs22aonn32BzuUVQ==" />
+		    <property name="merchantaccount" value="10012412055" />
+		    <!-- 类别码2：用户编号 -->
+		    <property name="identitytype" value="2" />
+		    <!-- 类别码6：公益事业 -->
+		    <property name="productcatalog" value="6" />
+		    <property name="productnamePrefix" value="搜狐焦点公益-捐款" />
+		    <property name="callbackurl" value="http://m.focus.cn/gongyi/success" />
+		    <property name="mobilePayUrl" value="http://ok.yeepay.com/paymobile/api/pay/request" />
+		</bean>
+	</beans>
+</beans>

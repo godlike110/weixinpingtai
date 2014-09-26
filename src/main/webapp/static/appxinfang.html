@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0026)http://house.focus.cn/app/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <link rel="stylesheet" href="http://house.focus.cn/app/css/head_foot.css">
+    <link rel="stylesheet" href="http://focus_static.cdn.sohusce.com/app/css/global1.3.css">
+    <link rel="stylesheet" href="http://focus_static.cdn.sohusce.com/app/css/style1.css">
+    <script src="http://house.focus.cn/app/js/jquery.js"></script>
+    <title>搜狐购房助手</title>
+</head>
+<body>
+<div class="focus_logoNavBg">
+    <div class="focus_area" id="focus_logoNav">
+        <div class="l"><a target="_blank" href="http://www.focus.cn/"><img alt="搜狐焦点" src="http://simg.f.itc.cn/common/modules/house_index/nav/images/focus_logo01.gif"></a>
+        </div>
+        <div class="r">
+            <a target="_blank" href="http://house.focus.cn/newscenter/xwsy.html">新闻</a> - <a target="_blank" href="http://house.focus.cn/housemarket/newhouse.php">新房</a>
+            - <a target="_blank" href="http://bj.esf.focus.cn/">二手房</a> - <a target="_blank" href="http://pinge.focus.cn/group/yezhu.php">业主论坛</a> - <a target="_blank" href="http://villa.focus.cn/">别墅</a> - <a target="_blank" href="http://home.focus.cn/">家居</a>
+            - <a target="_blank" href="http://jia.sohu.com/">商城</a> - <a target="_blank" href="http://chanye.focus.cn/">产业</a>
+            - <a target="_blank" href="http://shangye.focus.cn/">商业</a> - <a target="_blank" href="http://travel.focus.cn/">旅游</a> - <a target="_blank" href="http://overseas.focus.cn/">海外</a> - <a target="_blank" href="http://house.focus.cn/wap/">手机焦点</a>
+            - <a target="_blank" href="http://www.sohu.com/">搜狐首页</a>
+        </div>
+    </div>
+</div>
+<div class="nav nav_gof">
+    <p class="area">
+        <a href="http://house.focus.cn/app/" target="_blank" class="curr">搜狐购房助手</a><a href="http://pinge.focus.cn/#" target="_blank">品格</a><a href="http://house.focus.cn/app/iphone.html" target="_blank">搜狐焦点</a>
+    </p>
+</div>
+
+<div class="gof">
+    <div class="gofCen area">
+        <div class="gof_logo"></div>
+        <a href="https://itunes.apple.com/cn/app/id592992070?mt=8" target="_blank" class="iphone_download"></a>
+        <a href="http://a1.itc.cn/sceapp/mobile_app_release/FocusApartment.apk" class="android_install"></a>
+    </div>
+</div>
+
+<div class="gof_inFo area">
+</div>
+
+<div class="friendly">
+    <div class="bar">
+        <div class="inner" id="nav_fy">
+            <a href="javascript:void(0);" data="yq" class="selected">友情链接</a>
+            <a href="javascript:void(0);" data="hz" class="">合作媒体</a>
+        </div>
+    </div>
+    <div class="content">
+        <div class="inner" id="content_fy">
+            <a href="http://zhushou.360.cn/index" refer="yq" target="_blank">360手机助手</a>
+            <a href="http://www.anzow.com/" refer="yq" target="_blank">安卓软件园</a>
+            <a href="http://sj.zol.com.cn/" refer="yq" target="_blank">zol手机应用</a>
+            <a href="http://android.d.cn/" refer="yq" target="_blank">当乐网安卓游戏</a>
+            <a href="http://www.borpor.com/" refer="yq" target="_blank">宝瓶网</a>
+            <a href="http://pro.25pp.com" refer="yq" target="_blank">PP助手</a>
+        </div>
+    </div>
+</div>
+
+<div id="fouse_foot" class="foot">
+
+    <p><a href="http://house.focus.cn/msglist/918/">《说给焦点》论坛</a> - <a href="mailto:realhomehouse@sohu.com">电子邮件realhomehouse@sohu.com</a>
+        - 爱家热线：400-678-2020</p>
+
+    <p>Copyright © 2013 Sohu.com Inc. All rightss reserved. 搜狐公司 <a href="http://house.focus.cn/include/copyright.php" target="_blank">版权所有</a></p>
+
+    <p>增值电信业务经营许可证B2-20040144 京ICP证030367号&nbsp;<a href="http://images.house.focus.cn/img/focus_news_certi.JPG" target="_blank">互联网新闻信息服务许可证</a></p>
+</div>
+
+
+<script>
+    $(function(){
+        $('a[refer="yq"]', '.friendly .content').show();
+        $('.bar a', '.friendly').hover(function(){
+            $('.bar a', '.friendly').removeClass('selected');
+            $(this).addClass('selected');
+            $('a', '.friendly .content').hide();
+            $('a[refer="' + $(this).attr('data') + '"]', '.friendly .content').show();
+        });
+    });
+</script>
+
+
+</body></html>
